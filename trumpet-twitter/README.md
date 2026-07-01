@@ -1,12 +1,14 @@
+简体中文 | [English](./README.en.md)
+
 # Trumpet
 
 Trumpet 是一个用 TypeScript 写的小号 Twitter 全栈练习项目：React/Vite 前端、Express API、SQLite 持久化、本地账号、关注流、纯文本发帖、点赞和回复。
 
 ## 架构
 
-- `apps/web`: React + Vite 产品界面，登录后直接进入 Following 时间线
-- `apps/api`: Express REST API，负责认证、业务逻辑、SQLite 读写
-- `packages/shared`: Zod schema、DTO 和共享类型，避免前后端接口漂移
+- `apps/web`：React + Vite 产品界面，登录后直接进入 Following 时间线
+- `apps/api`：Express REST API，负责认证、业务逻辑、SQLite 读写
+- `packages/shared`：Zod schema、DTO 和共享类型，避免前后端接口漂移
 
 后端数据表包括 `users`、`sessions`、`posts`、`follows`、`likes`。`posts.parent_id` 用来支持回复，第一版不做图片、转发、私信、通知或推荐算法。过期会话在每次新建会话时被机会性清理。
 
@@ -25,8 +27,8 @@ pnpm dev
 
 默认地址：
 
-- Web: <http://localhost:5173>
-- API: <http://localhost:4000>
+- Web：<http://localhost:5173>
+- API：<http://localhost:4000>
 
 Seed 账号：
 
@@ -43,7 +45,7 @@ pnpm test
 pnpm build
 ```
 
-`pnpm test` 会依次运行 shared contract schema 测试、Express API 回归测试和 React UI 交互测试。
+`pnpm test` 会先构建 shared，再依次运行 shared contract schema 测试、Express API 回归测试和 React UI 交互测试。（`pnpm typecheck` 同样会先构建 shared。）
 
 API 单独运行：
 

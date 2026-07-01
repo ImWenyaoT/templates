@@ -1,3 +1,5 @@
+简体中文 | [English](./README.en.md)
+
 # Node.js CLI File Search
 
 一个 TypeScript Node.js CLI 框架，用来按文件名搜索目录。
@@ -6,10 +8,13 @@
 
 ```bash
 npm install
-npm run dev -- search <keyword> --root .
-npm run test
-npm run build
+npm run dev -- search <keyword> --root .   # 用 tsx 直接跑 src/index.ts
+npm run test                               # vitest run
+npm run typecheck                          # tsc --noEmit
+npm run build                              # 编译到 dist/
 ```
+
+需要 Node.js >= 20。
 
 ## 命令
 

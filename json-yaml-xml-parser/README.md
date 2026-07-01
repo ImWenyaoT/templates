@@ -1,23 +1,25 @@
-# JSON/YAML/XML Parser
+简体中文 | [English](./README.en.md)
 
-A small TypeScript parser for normalizing JSON, YAML, and XML into JSON-serializable JavaScript data.
+# JSON/YAML/XML 解析器
 
-## Install
+一个小巧的 TypeScript 解析器，把 JSON、YAML、XML 统一规整为 JSON 可序列化的 JavaScript 数据。
+
+## 安装
 
 ```bash
 npm install
 ```
 
-## CLI
+## CLI 用法
 
 ```bash
 npm run dev -- parse ./example.yaml
 npm run dev -- parse ./example.txt --format json
 ```
 
-The CLI detects `.json`, `.yaml`, `.yml`, and `.xml` files automatically. Use `--format` to override detection.
+CLI 会自动识别 `.json`、`.yaml`、`.yml`、`.xml` 文件。使用 `--format`（或短选项 `-f`）可覆盖自动检测。构建后可执行文件名为 `data-parser`，用法为 `data-parser parse <file> [--format json|yaml|xml]`。
 
-## Library
+## 库 API
 
 ```ts
 import { parseData, parseDocument } from 'json-yaml-xml-parser'
@@ -26,14 +28,15 @@ const data = parseData('{"name":"Ada"}', { format: 'json' })
 const document = parseDocument('<user id="1">Ada</user>', { format: 'xml' })
 ```
 
-XML output keeps attributes under `$attributes` and text nodes under `$text` so the
-parsed shape stays stable and predictable. Parsing is one-way normalization into
-JSON-serializable data: the tool reads JSON/YAML/XML and emits a normalized value,
-but it does not serialize back to YAML or XML (XML scalars are kept as strings).
+- `parseDocument(source, options)`：解析源字符串，返回数据以及解析元信息（`format`、`data`，以及传入 `sourcePath` 时的 `sourcePath`）。
+- `parseData(source, options)`：只返回规整后的数据值。
+- `detectFormat(sourcePath?, format?)`：根据显式格式或文件扩展名判断该用哪个解析器。
 
-Built with TypeScript 6 on Node.js (ESM, `NodeNext`); tested with Vitest 4.
+XML 输出把属性放在 `$attributes` 下、文本节点放在 `$text` 下，重复的子元素变成数组，从而让解析后的结构保持稳定、可预测。解析是**单向**规整为 JSON 可序列化数据：本工具读取 JSON/YAML/XML 并输出一个规整后的值，但**不会**反序列化回写 YAML 或 XML（XML 标量保留为字符串）。
 
-## Checks
+基于 TypeScript 6、运行于 Node.js（ESM，`NodeNext`，要求 Node >= 20）；使用 Vitest 4 测试。
+
+## 检查命令
 
 ```bash
 npm run typecheck
@@ -41,6 +44,6 @@ npm test
 npm run build
 ```
 
-## Docs
+## 文档
 
-- [Test contract](docs/test-contract.md): Explains the input rules, parser logic, output shape, guardrails, and eval coverage.
+- [测试契约](docs/test-contract.md)：说明输入规则、解析逻辑、输出结构、护栏（guardrails）与评测（eval）覆盖范围。

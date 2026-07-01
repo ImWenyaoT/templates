@@ -1,3 +1,5 @@
+简体中文 | [English](./README.en.md)
+
 # AI Article Summarizer
 
 AI Article Summarizer 是一个基于 Next.js 16 的阅读工具工作台。它合并了 AI 文章摘要、摘要历史和 Markdown 转 HTML 能力：用户输入公开文章 URL 后，服务端会抓取静态 HTML、抽取正文内容、调用 DeepSeek Chat Completions API 生成三种长度的摘要，并将摘要历史保存到 SQLite-compatible 数据库；用户也可以在 `/markdown` 将 Markdown 笔记导出为带样式和代码高亮的 HTML。

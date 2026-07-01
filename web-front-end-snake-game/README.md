@@ -1,19 +1,21 @@
-# Snake
+简体中文 | [English](./README.en.md)
 
-A pure frontend Snake game built with TypeScript, Vite, and Vanilla Canvas.
+# 贪吃蛇
 
-## Features
+一个纯前端的贪吃蛇游戏，使用 TypeScript、Vite 和原生 Canvas 构建。
 
-- Deterministic game simulation separated from rendering
-- Canvas playfield with DOM HUD and controls
-- Keyboard, WASD, and on-screen directional controls
-- Persisted best score through `localStorage` (falls back safely when storage is unavailable)
-- Frame-delta clamping so a backgrounded tab does not "spiral" on resume
-- Vitest coverage for core game rules
+## 特性
 
-Built with TypeScript 6 and Vite 8 (Rolldown); tested with Vitest 4.
+- 确定性的游戏模拟，与渲染彻底解耦
+- Canvas 棋盘配合 DOM 的 HUD 与控制按钮
+- 支持方向键、WASD 和屏幕方向按钮
+- 通过 `localStorage` 持久化最高分（存储不可用时安全兜底）
+- 帧间隔（frame delta）钳位，避免标签页被切到后台后恢复时"雪崩"
+- 用 Vitest 覆盖核心游戏规则
 
-## Commands
+基于 TypeScript 6 和 Vite 8（Rolldown）构建；使用 Vitest 4 测试。
+
+## 命令
 
 ```bash
 npm install
@@ -23,17 +25,17 @@ npm run test
 npm run build
 ```
 
-## Architecture
+## 架构
 
-- `src/game/`: pure game state, rules, config, and deterministic random helpers
-- `src/renderer/`: Canvas renderer that only reads game state
-- `src/input.ts`: physical input to game action mapping
-- `src/main.ts`: fixed-tick game loop and DOM HUD binding
+- `src/game/`：纯游戏状态、规则、配置以及确定性随机数辅助函数
+- `src/renderer/`：只读取游戏状态的 Canvas 渲染器
+- `src/input.ts`：把物理输入映射为游戏动作
+- `src/main.ts`：固定步长的游戏循环与 DOM HUD 绑定
 
-## Docs
+## 文档
 
-- [Test contract](docs/test-contract.md): Explains the input actions, state rules, guardrails, and eval coverage.
+- [测试契约](docs/test-contract.md)：说明输入动作、状态规则、护栏（guardrails）与评测（eval）覆盖范围。
 
-## License
+## 许可证
 
 MIT
