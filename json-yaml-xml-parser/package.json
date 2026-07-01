@@ -1,0 +1,29 @@
+{
+  "name": "json-yaml-xml-parser",
+  "version": "0.1.0",
+  "description": "A TypeScript Node.js parser for JSON, YAML, and XML documents.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "data-parser": "./dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.9.3",
+    "yaml": "^2.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  }
+}

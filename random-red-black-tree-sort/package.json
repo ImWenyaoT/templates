@@ -1,0 +1,21 @@
+{
+  "name": "random-red-black-tree-sort",
+  "version": "1.0.0",
+  "description": "A TypeScript red-black tree that sorts 10,000 randomly inserted elements.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "start": "tsx src/index.ts",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run test"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-cli-file-search",
+  "version": "0.1.0",
+  "description": "A TypeScript Node.js CLI framework for searching files by name.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "file-search": "./dist/src/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  }
+}
