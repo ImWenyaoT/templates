@@ -1,5 +1,7 @@
 # TypeScript 项目模板集（templates）
 
+[![CI](https://github.com/ImWenyaoT/templates/actions/workflows/ci.yml/badge.svg)](https://github.com/ImWenyaoT/templates/actions/workflows/ci.yml)
+
 一组自包含、生产标准的 TypeScript 项目模板，覆盖算法、命令行工具、前端与前后端全栈等不同领域，每个都配套完整测试、可独立作为新项目的起点。以下逐个概述，每段描述均可直接用作简历项目经历。
 
 ## [trumpet-twitter](./trumpet-twitter/) · 全栈「小号 Twitter」

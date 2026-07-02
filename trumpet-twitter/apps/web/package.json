@@ -8,7 +8,8 @@
     "dev": "vite",
     "lint": "eslint src",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@trumpet/shared": "workspace:*",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
+    "@vitest/coverage-v8": "^4.1.9",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.2.17",

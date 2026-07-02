@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# 每个模板是自包含项目：矩阵按各自的 lockfile 选包管理器，
+# 分别跑 typecheck / lint / test / build，任一失败都会让该项目的作业变红。
+jobs:
+  check:
+    name: ${{ matrix.project }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { project: json-yaml-xml-parser, pm: npm }
+          - { project: nodejs-cli-file-search, pm: npm }
+          - { project: random-red-black-tree-sort, pm: npm }
+          - { project: web-front-end-snake-game, pm: npm }
+          - { project: trumpet-twitter, pm: pnpm }
+          - { project: ai-article-summarizer, pm: pnpm }
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        if: matrix.pm == 'pnpm'
+        uses: pnpm/action-setup@v4
+        with:
+          package_json_file: ${{ matrix.project }}/package.json
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: ${{ matrix.pm }}
+          cache-dependency-path: ${{ matrix.project }}/${{ matrix.pm == 'pnpm' && 'pnpm-lock.yaml' || 'package-lock.json' }}
+
+      - name: Install dependencies
+        run: ${{ matrix.pm == 'pnpm' && 'pnpm install --frozen-lockfile' || 'npm ci' }}
+
+      - name: Typecheck
+        run: ${{ matrix.pm }} run typecheck
+
+      - name: Lint
+        run: ${{ matrix.pm }} run lint
+
+      - name: Test
+        run: ${{ matrix.pm }} run test
+
+      - name: Build
+        run: ${{ matrix.pm }} run build

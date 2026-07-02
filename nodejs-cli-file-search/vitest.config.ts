@@ -1,13 +1,7 @@
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-  server: {
-    host: '127.0.0.1',
-    port: 5173
-  },
   test: {
-    globals: true,
-    environment: 'node',
     coverage: { provider: 'v8', include: ['src/**/*.ts'], reporter: ['text', 'json-summary'] }
   }
 })

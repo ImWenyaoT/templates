@@ -8,7 +8,8 @@
     "dev": "pnpm --parallel --filter @trumpet/api --filter @trumpet/web dev",
     "lint": "pnpm --filter @trumpet/shared lint && pnpm --filter @trumpet/api lint && pnpm --filter @trumpet/web lint",
     "typecheck": "pnpm --filter @trumpet/shared build && pnpm --filter @trumpet/api typecheck && pnpm --filter @trumpet/web typecheck",
-    "test": "pnpm --filter @trumpet/shared build && pnpm --filter @trumpet/shared test && pnpm --filter @trumpet/api test && pnpm --filter @trumpet/web test"
+    "test": "pnpm --filter @trumpet/shared build && pnpm --filter @trumpet/shared test && pnpm --filter @trumpet/api test && pnpm --filter @trumpet/web test",
+    "test:coverage": "pnpm --filter @trumpet/shared build && pnpm --filter @trumpet/shared test:coverage && pnpm --filter @trumpet/api test:coverage && pnpm --filter @trumpet/web test:coverage"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
