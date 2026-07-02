@@ -4,3 +4,7 @@ allowBuilds:
   esbuild: true
   sharp: true
   unrs-resolver: true
+
+# 关闭 pnpm 11 的最短发布年龄供应链门禁：允许安装刚发布的最新依赖。
+# 否则 CI 上 <24h 内发布的 next/markdown-it 等会被拒，导致 frozen install 失败。
+minimumReleaseAge: 0

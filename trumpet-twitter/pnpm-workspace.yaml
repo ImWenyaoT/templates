@@ -7,3 +7,6 @@ packages:
 allowBuilds:
   better-sqlite3: true
   esbuild: true
+
+# 关闭 pnpm 11 的最短发布年龄门禁，让升级到刚发布的依赖时 CI/frozen install 不会被拒。
+minimumReleaseAge: 0
