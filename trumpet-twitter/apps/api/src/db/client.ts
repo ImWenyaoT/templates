@@ -1,13 +1,10 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import Database from 'better-sqlite3'
-import { drizzle } from 'drizzle-orm/better-sqlite3'
 import { runMigrations } from './migrate.js'
-import * as schema from './schema.js'
 
 export interface DatabaseClient {
   sqlite: Database.Database
-  db: ReturnType<typeof drizzle<typeof schema>>
 }
 
 export interface DatabaseOptions {
@@ -18,7 +15,7 @@ export interface DatabaseOptions {
 const defaultDbPath = path.resolve(process.cwd(), 'data/trumpet.db')
 
 /**
- * Opens SQLite, enables schema support, and returns the Drizzle client.
+ * Opens SQLite, runs migrations, and returns the database client.
  */
 export const createDatabaseClient = (options: DatabaseOptions = {}): DatabaseClient => {
   // Ensure the parent directory exists BEFORE opening the database file, otherwise
@@ -32,7 +29,6 @@ export const createDatabaseClient = (options: DatabaseOptions = {}): DatabaseCli
   runMigrations(sqlite)
 
   return {
-    sqlite,
-    db: drizzle(sqlite, { schema })
+    sqlite
   }
 }

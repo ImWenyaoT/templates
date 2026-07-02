@@ -1,6 +1,5 @@
 import { randomUUID } from 'node:crypto'
 import type { DatabaseClient } from '../db/client.js'
-import { users } from '../db/schema.js'
 import type { StoredUser, UserStats } from './types.js'
 
 interface UserRow {
@@ -53,29 +52,32 @@ export const createUserRepository = (client: DatabaseClient) => {
       END AS followedByMe
   `)
 
+  const insertUserStatement = client.sqlite.prepare(
+    'INSERT INTO users (id, handle, display_name, bio, password_hash, created_at) VALUES (?, ?, ?, ?, ?, ?)'
+  )
+
   return {
     /**
      * Creates a new local-account user.
      */
-    create: async (input: { handle: string; displayName: string; passwordHash: string }) => {
-      const now = new Date().toISOString()
+    create: (input: { handle: string; displayName: string; passwordHash: string }) => {
       const user = {
         id: randomUUID(),
         handle: input.handle,
         displayName: input.displayName,
         bio: '',
         passwordHash: input.passwordHash,
-        createdAt: now
+        createdAt: new Date().toISOString()
       }
 
-      await client.db.insert(users).values({
-        id: user.id,
-        handle: user.handle,
-        displayName: user.displayName,
-        bio: user.bio,
-        passwordHash: user.passwordHash,
-        createdAt: user.createdAt
-      })
+      insertUserStatement.run(
+        user.id,
+        user.handle,
+        user.displayName,
+        user.bio,
+        user.passwordHash,
+        user.createdAt
+      )
 
       return user
     },

@@ -35,7 +35,7 @@ export const createAuthService = ({ users, sessions }: AuthRepositories) => ({
     }
 
     const passwordHash = await bcrypt.hash(body.password, 12)
-    const user = await users.create({
+    const user = users.create({
       handle: body.handle,
       displayName: body.displayName,
       passwordHash

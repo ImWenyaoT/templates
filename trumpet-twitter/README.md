@@ -14,7 +14,7 @@ Trumpet 是一个用 TypeScript 写的小号 Twitter 全栈练习项目：React/
 
 ## 技术栈
 
-TypeScript 6（strict + `exactOptionalPropertyTypes`）、React 19 + Vite 8、Express 5、Zod 4（共享 schema）、Drizzle ORM + better-sqlite3、bcryptjs 3（密码哈希）。工具链：pnpm workspace、ESLint 10（flat config）、Vitest 4。
+TypeScript 6（strict + `exactOptionalPropertyTypes`）、React 19 + Vite 8、Express 5、Zod 4（共享 schema）、SQLite（better-sqlite3，直接用 prepared statement，不引入 ORM）、bcryptjs 3（密码哈希）。工具链：pnpm workspace、ESLint 10（flat config）、Vitest 4。
 
 ## 本地运行
 

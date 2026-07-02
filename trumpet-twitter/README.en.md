@@ -14,7 +14,7 @@ The backend tables are `users`, `sessions`, `posts`, `follows`, and `likes`. `po
 
 ## Tech Stack
 
-TypeScript 6 (strict + `exactOptionalPropertyTypes`), React 19 + Vite 8, Express 5, Zod 4 (shared schemas), Drizzle ORM + better-sqlite3, bcryptjs 3 (password hashing). Toolchain: pnpm workspace, ESLint 10 (flat config), Vitest 4.
+TypeScript 6 (strict + `exactOptionalPropertyTypes`), React 19 + Vite 8, Express 5, Zod 4 (shared schemas), SQLite (better-sqlite3 with raw prepared statements, no ORM), bcryptjs 3 (password hashing). Toolchain: pnpm workspace, ESLint 10 (flat config), Vitest 4.
 
 ## Running Locally
 
