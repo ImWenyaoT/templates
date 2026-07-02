@@ -7,16 +7,16 @@
 ## 运行
 
 ```sh
-npm install
-npm run start
+pnpm install
+pnpm start
 ```
 
 ## 检查
 
 ```sh
-npm run typecheck   # tsc --noEmit
-npm test            # vitest run
-npm run check       # 先 typecheck 再 test
+pnpm typecheck   # tsc --noEmit
+pnpm test        # vitest run
+pnpm check       # 先 typecheck 再 test
 ```
 
 测试套件覆盖：

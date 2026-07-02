@@ -18,11 +18,11 @@
 ## 命令
 
 ```bash
-npm install
-npm run dev
-npm run typecheck
-npm run test
-npm run build
+pnpm install
+pnpm dev
+pnpm typecheck
+pnpm test
+pnpm build
 ```
 
 ## 架构

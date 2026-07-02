@@ -1,6 +1,7 @@
 {
   "name": "json-yaml-xml-parser",
   "version": "0.1.0",
+  "packageManager": "pnpm@11.9.0",
   "description": "A TypeScript Node.js parser for JSON, YAML, and XML documents.",
   "license": "MIT",
   "type": "module",

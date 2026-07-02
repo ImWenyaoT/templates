@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A TypeScript Node.js CLI framework for searching files by name.",
   "license": "MIT",
+  "packageManager": "pnpm@11.9.0",
   "type": "module",
   "bin": {
     "file-search": "./dist/src/index.js"

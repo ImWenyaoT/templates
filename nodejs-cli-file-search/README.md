@@ -7,11 +7,11 @@
 ## 开发
 
 ```bash
-npm install
-npm run dev -- search <keyword> --root .   # 用 tsx 直接跑 src/index.ts
-npm run test                               # vitest run
-npm run typecheck                          # tsc --noEmit
-npm run build                              # 编译到 dist/
+pnpm install
+pnpm dev -- search <keyword> --root .   # 用 tsx 直接跑 src/index.ts
+pnpm test                               # vitest run
+pnpm typecheck                          # tsc --noEmit
+pnpm build                              # 编译到 dist/
 ```
 
 需要 Node.js >= 20。

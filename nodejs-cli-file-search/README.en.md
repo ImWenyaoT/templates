@@ -7,11 +7,11 @@ A TypeScript Node.js CLI framework for searching a directory by file name.
 ## Development
 
 ```bash
-npm install
-npm run dev -- search <keyword> --root .   # run src/index.ts directly via tsx
-npm run test                               # vitest run
-npm run typecheck                          # tsc --noEmit
-npm run build                              # compile to dist/
+pnpm install
+pnpm dev -- search <keyword> --root .   # run src/index.ts directly via tsx
+pnpm test                               # vitest run
+pnpm typecheck                          # tsc --noEmit
+pnpm build                              # compile to dist/
 ```
 
 Requires Node.js >= 20.

@@ -18,11 +18,11 @@ Built with TypeScript 6 and Vite 8 (Rolldown); tested with Vitest 4.
 ## Commands
 
 ```bash
-npm install
-npm run dev
-npm run typecheck
-npm run test
-npm run build
+pnpm install
+pnpm dev
+pnpm typecheck
+pnpm test
+pnpm build
 ```
 
 ## Architecture

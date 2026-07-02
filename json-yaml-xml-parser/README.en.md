@@ -7,14 +7,14 @@ A small TypeScript parser for normalizing JSON, YAML, and XML into JSON-serializ
 ## Install
 
 ```bash
-npm install
+pnpm install
 ```
 
 ## CLI
 
 ```bash
-npm run dev -- parse ./example.yaml
-npm run dev -- parse ./example.txt --format json
+pnpm dev -- parse ./example.yaml
+pnpm dev -- parse ./example.txt --format json
 ```
 
 The CLI detects `.json`, `.yaml`, `.yml`, and `.xml` files automatically. Use `--format` (or the short option `-f`) to override detection. After building, the executable is named `data-parser`, invoked as `data-parser parse <file> [--format json|yaml|xml]`.
@@ -39,9 +39,9 @@ Built with TypeScript 6 on Node.js (ESM, `NodeNext`, requires Node >= 20); teste
 ## Checks
 
 ```bash
-npm run typecheck
-npm test
-npm run build
+pnpm typecheck
+pnpm test
+pnpm build
 ```
 
 ## Docs

@@ -8,16 +8,16 @@ uses in-order traversal to produce sorted output.
 ## Run
 
 ```sh
-npm install
-npm run start
+pnpm install
+pnpm start
 ```
 
 ## Check
 
 ```sh
-npm run typecheck   # tsc --noEmit
-npm test            # vitest run
-npm run check       # typecheck + test
+pnpm typecheck   # tsc --noEmit
+pnpm test        # vitest run
+pnpm check       # typecheck + test
 ```
 
 The test suite covers:
